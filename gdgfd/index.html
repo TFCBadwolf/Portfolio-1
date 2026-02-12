@@ -1,0 +1,1577 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Premium Developer Portfolio - Creative Developer & Designer">
+    <title>TFC BADWOLF | PORTFOLIO |</title>
+
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&family=Inter:wght@300;400;500;600;700&display=swap"
+        rel="stylesheet">
+
+    <!-- Font Awesome Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+    <!-- GSAP -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollToPlugin.min.js"></script>
+
+    <!-- Three.js -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+
+    <!-- Styles -->
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+    <!-- Audio -->
+    <audio id="bg-music" loop>
+        <source src="bg_music.mp3" type="audio/mpeg">
+    </audio>
+    <!-- ========================================
+         PRELOADER
+    ======================================== -->
+    <div id="preloader">
+        <div class="loader-content">
+            <div class="loader-logo">TFC</div>
+            <div class="loader-bar">
+                <div class="loader-progress"></div>
+            </div>
+            <div class="loader-text">Loading Experience...</div>
+        </div>
+    </div>
+
+    <!-- ========================================
+         CURSOR
+    ======================================== -->
+    <div class="cursor"></div>
+    <div class="cursor-follower"></div>
+
+    <!-- ========================================
+         NAVIGATION
+    ======================================== -->
+    <nav id="navbar">
+        <div class="nav-container">
+            <!-- EDIT: Your Logo/Name -->
+            <a href="#hero" class="nav-logo">
+                <span class="logo-text">TFC</span>
+                <span class="logo-dot"></span>
+            </a>
+
+            <!-- Desktop Navigation -->
+            <ul class="nav-links">
+                <li><a href="#hero" class="nav-link active">Home</a></li>
+                <li><a href="#about" class="nav-link">About</a></li>
+                <li><a href="#skills" class="nav-link">Skills</a></li>
+                <li><a href="#projects" class="nav-link">Projects</a></li>
+                <li><a href="#experience" class="nav-link">Experience</a></li>
+                <li><a href="#contact" class="nav-link">Contact</a></li>
+            </ul>
+
+            <!-- Navigation Actions -->
+            <div class="nav-actions">
+                <!-- Music Toggle -->
+                <button id="music-toggle" class="nav-btn" aria-label="Toggle Music">
+                    <i class="fas fa-volume-xmark"></i>
+                </button>
+
+                <!-- Theme Toggle (Optional) -->
+                <button id="theme-toggle" class="nav-btn" aria-label="Toggle Theme">
+                    <i class="fas fa-moon"></i>
+                </button>
+
+                <!-- Mobile Menu Toggle -->
+                <button id="menu-toggle" class="menu-toggle" aria-label="Toggle Menu">
+                    <span class="hamburger-line"></span>
+                    <span class="hamburger-line"></span>
+                    <span class="hamburger-line"></span>
+                </button>
+            </div>
+        </div>
+
+        <!-- Mobile Navigation -->
+        <div class="mobile-nav">
+            <ul class="mobile-nav-links">
+                <li><a href="#hero" class="mobile-nav-link">Home</a></li>
+                <li><a href="#about" class="mobile-nav-link">About</a></li>
+                <li><a href="#skills" class="mobile-nav-link">Skills</a></li>
+                <li><a href="#projects" class="mobile-nav-link">Projects</a></li>
+                <li><a href="#experience" class="mobile-nav-link">Experience</a></li>
+                <li><a href="#contact" class="mobile-nav-link">Contact</a></li>
+            </ul>
+            <div class="mobile-nav-footer">
+                <div class="social-links">
+                    <a href="#" class="social-link"><i class="fab fa-github"></i></a>
+                    <a href="#" class="social-link"><i class="fab fa-linkedin"></i></a>
+                    <a href="#" class="social-link"><i class="fab fa-twitter"></i></a>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <!-- ========================================
+         HERO SECTION
+    ======================================== -->
+    <section id="hero" class="hero-section">
+        <!-- Three.js Canvas Container -->
+        <div id="hero-canvas"></div>
+
+        <!-- Particle Background -->
+        <div id="particles-container"></div>
+
+        <!-- Hero Content -->
+        <div class="hero-content">
+            <div class="hero-badge" data-animate="fade-down">
+                <span class="badge-dot"></span>
+                <span>Available for freelance work</span>
+            </div>
+
+            <!-- EDIT: Your Name -->
+            <h1 class="hero-title" data-animate="fade-up">
+                <span class="title-line">Hello, I'm</span>
+                <span class="title-name glitch" data-text="TFC BADWOLF">TFC BADWOLF</span>
+            </h1>
+
+            <!-- EDIT: Your Role -->
+            <div class="hero-role" data-animate="fade-up" data-delay="0.2">
+                <span class="role-prefix">I'm a</span>
+                <span class="role-text" id="typed-role"></span>
+                <span class="role-cursor">|</span>
+            </div>
+
+            <!-- EDIT: Your Tagline -->
+            <p class="hero-description" data-animate="fade-up" data-delay="0.4">
+                Crafting immersive digital experiences through creative code,
+                <br>beautiful design, and cutting-edge technology.
+            </p>
+
+            <!-- CTA Buttons -->
+            <div class="hero-cta" data-animate="fade-up" data-delay="0.6">
+                <a href="#projects" class="btn btn-primary">
+                    <span>View My Work</span>
+                    <i class="fas fa-arrow-right"></i>
+                </a>
+                <a href="#contact" class="btn btn-secondary">
+                    <span>Get in Touch</span>
+                    <i class="fas fa-paper-plane"></i>
+                </a>
+            </div>
+
+            <!-- Hero Stats -->
+            <div class="hero-stats" data-animate="fade-up" data-delay="0.8">
+                <!-- EDIT: Your Stats -->
+                <div class="stat-item">
+                    <span class="stat-number" data-count="5">0</span>
+                    <span class="stat-suffix">+</span>
+                    <span class="stat-label">Years Experience</span>
+                </div>
+                <div class="stat-divider"></div>
+                <div class="stat-item">
+                    <span class="stat-number" data-count="50">0</span>
+                    <span class="stat-suffix">+</span>
+                    <span class="stat-label">Projects Completed</span>
+                </div>
+                <div class="stat-divider"></div>
+                <div class="stat-item">
+                    <span class="stat-number" data-count="30">0</span>
+                    <span class="stat-suffix">+</span>
+                    <span class="stat-label">Happy Clients</span>
+                </div>
+            </div>
+        </div>
+
+        <!-- Scroll Indicator -->
+        <div class="scroll-indicator" data-animate="fade-up" data-delay="1">
+            <div class="mouse">
+                <div class="wheel"></div>
+            </div>
+            <span class="scroll-text">Scroll to explore</span>
+            <div class="scroll-arrows">
+                <span></span>
+                <span></span>
+            </div>
+        </div>
+
+        <!-- Floating Elements -->
+        <div class="floating-shapes">
+            <div class="shape shape-1"></div>
+            <div class="shape shape-2"></div>
+            <div class="shape shape-3"></div>
+            <div class="shape shape-4"></div>
+        </div>
+    </section>
+
+    <!-- ========================================
+         ABOUT SECTION (PARALLAX)
+    ======================================== -->
+    <section id="about" class="about-section">
+        <!-- Parallax Layers -->
+        <div class="parallax-container">
+            <div class="parallax-layer layer-1" data-speed="0.1"></div>
+            <div class="parallax-layer layer-2" data-speed="0.3"></div>
+            <div class="parallax-layer layer-3" data-speed="0.5"></div>
+        </div>
+
+        <div class="container">
+            <!-- Section Header -->
+            <div class="section-header" data-animate="fade-up">
+                <span class="section-tag">Get to know me</span>
+                <h2 class="section-title">About <span class="highlight">Me</span></h2>
+                <div class="section-line"></div>
+            </div>
+
+            <div class="about-grid">
+                <!-- About Image -->
+                <div class="about-image-container" data-animate="fade-right">
+                    <div class="about-image-wrapper">
+                        <!-- EDIT: Your Photo -->
+                        <div class="about-image">
+                            <img src="avatarBody4.png" alt="TFC BADWOLF"
+                                style="width:100%; height:100%; object-fit:cover;">
+                        </div>
+                        <div class="image-frame"></div>
+                        <div class="image-dots"></div>
+                    </div>
+
+                    <!-- Experience Badge -->
+                    <div class="experience-badge glass-card">
+                        <span class="badge-number">5+</span>
+                        <span class="badge-text">Years of<br>Experience</span>
+                    </div>
+                </div>
+
+                <!-- About Content -->
+                <div class="about-content" data-animate="fade-left">
+                    <!-- EDIT: Your About Text -->
+                    <h3 class="about-subtitle">
+                        A passionate developer dedicated to creating
+                        <span class="text-gradient">exceptional digital experiences</span>
+                    </h3>
+
+                    <p class="about-text">
+                        I'm a creative developer with over 5 years of experience building
+                        modern web applications and immersive digital experiences. My passion
+                        lies in blending technical expertise with creative design to deliver
+                        solutions that not only work flawlessly but also captivate users.
+                    </p>
+
+                    <p class="about-text">
+                        When I'm not coding, you'll find me exploring new technologies,
+                        contributing to open-source projects, or sharing knowledge with
+                        the developer community.
+                    </p>
+
+                    <!-- Info Cards -->
+                    <div class="about-info-grid">
+                        <div class="info-card glass-card">
+                            <i class="fas fa-map-marker-alt"></i>
+                            <div>
+                                <span class="info-label">Location</span>
+                                <!-- EDIT: Your Location -->
+                                <span class="info-value">New Delhi , India</span>
+                            </div>
+                        </div>
+                        <div class="info-card glass-card">
+                            <i class="fas fa-envelope"></i>
+                            <div>
+                                <span class="info-label">Email</span>
+                                <!-- EDIT: Your Email -->
+                                <span class="info-value">anaytiwari3a15@gmail.com</span>
+                            </div>
+                        </div>
+                        <div class="info-card glass-card">
+                            <i class="fas fa-graduation-cap"></i>
+                            <div>
+                                <span class="info-label">Education</span>
+                                <!-- EDIT: Your Education -->
+                                <span class="info-value">BS Computer Science</span>
+                            </div>
+                        </div>
+                        <div class="info-card glass-card">
+                            <i class="fas fa-briefcase"></i>
+                            <div>
+                                <span class="info-label">Status</span>
+                                <span class="info-value available">Open to Work</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Download CV Button -->
+                    <div class="about-actions">
+                        <a href="#" class="btn btn-primary" download>
+                            <i class="fas fa-download"></i>
+                            <span>Download CV</span>
+                        </a>
+                        <a href="#contact" class="btn btn-outline">
+                            <span>Let's Talk</span>
+                            <i class="fas fa-arrow-right"></i>
+                        </a>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Animated Stats -->
+            <div class="stats-container" data-animate="fade-up">
+                <!-- EDIT: Your Stats -->
+                <div class="stat-card glass-card">
+                    <div class="stat-icon">
+                        <i class="fas fa-code"></i>
+                    </div>
+                    <div class="stat-info">
+                        <span class="stat-count" data-count="150000">0</span>
+                        <span class="stat-label">Lines of Code</span>
+                    </div>
+                    <div class="stat-bar">
+                        <div class="stat-fill" data-width="95%"></div>
+                    </div>
+                </div>
+
+                <div class="stat-card glass-card">
+                    <div class="stat-icon">
+                        <i class="fas fa-coffee"></i>
+                    </div>
+                    <div class="stat-info">
+                        <span class="stat-count" data-count="2500">0</span>
+                        <span class="stat-label">Cups of Coffee</span>
+                    </div>
+                    <div class="stat-bar">
+                        <div class="stat-fill" data-width="88%"></div>
+                    </div>
+                </div>
+
+                <div class="stat-card glass-card">
+                    <div class="stat-icon">
+                        <i class="fas fa-award"></i>
+                    </div>
+                    <div class="stat-info">
+                        <span class="stat-count" data-count="15">0</span>
+                        <span class="stat-label">Awards Won</span>
+                    </div>
+                    <div class="stat-bar">
+                        <div class="stat-fill" data-width="75%"></div>
+                    </div>
+                </div>
+
+                <div class="stat-card glass-card">
+                    <div class="stat-icon">
+                        <i class="fas fa-star"></i>
+                    </div>
+                    <div class="stat-info">
+                        <span class="stat-count" data-count="500">0</span>
+                        <span class="stat-label">GitHub Stars</span>
+                    </div>
+                    <div class="stat-bar">
+                        <div class="stat-fill" data-width="82%"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ========================================
+         SKILLS SECTION
+    ======================================== -->
+    <section id="skills" class="skills-section">
+        <div class="container">
+            <!-- Section Header -->
+            <div class="section-header" data-animate="fade-up">
+                <span class="section-tag">What I Do</span>
+                <h2 class="section-title">My <span class="highlight">Skills</span></h2>
+                <div class="section-line"></div>
+                <p class="section-description">
+                    Technologies and tools I use to bring ideas to life
+                </p>
+            </div>
+
+            <!-- Skills Categories -->
+            <div class="skills-tabs" data-animate="fade-up">
+                <button class="skill-tab active" data-category="frontend">Frontend</button>
+                <button class="skill-tab" data-category="backend">Backend</button>
+                <button class="skill-tab" data-category="tools">Tools & Others</button>
+            </div>
+
+            <!-- Skills Grid -->
+            <div class="skills-grid" data-animate="stagger">
+                <!-- EDIT: Add/Remove/Modify Skills -->
+
+                <!-- Frontend Skills -->
+                <div class="skill-card glass-card" data-category="frontend" data-animate="fade-up">
+                    <div class="skill-icon">
+                        <i class="fab fa-html5"></i>
+                    </div>
+                    <div class="skill-info">
+                        <h4 class="skill-name">HTML5</h4>
+                        <div class="skill-level">
+                            <div class="level-bar">
+                                <div class="level-fill" data-level="95"></div>
+                            </div>
+                            <span class="level-text">95%</span>
+                        </div>
+                    </div>
+                    <div class="skill-glow"></div>
+                </div>
+
+                <div class="skill-card glass-card" data-category="frontend" data-animate="fade-up">
+                    <div class="skill-icon">
+                        <i class="fab fa-css3-alt"></i>
+                    </div>
+                    <div class="skill-info">
+                        <h4 class="skill-name">CSS3 / SASS</h4>
+                        <div class="skill-level">
+                            <div class="level-bar">
+                                <div class="level-fill" data-level="92"></div>
+                            </div>
+                            <span class="level-text">92%</span>
+                        </div>
+                    </div>
+                    <div class="skill-glow"></div>
+                </div>
+
+                <div class="skill-card glass-card" data-category="frontend" data-animate="fade-up">
+                    <div class="skill-icon">
+                        <i class="fab fa-js-square"></i>
+                    </div>
+                    <div class="skill-info">
+                        <h4 class="skill-name">JavaScript</h4>
+                        <div class="skill-level">
+                            <div class="level-bar">
+                                <div class="level-fill" data-level="90"></div>
+                            </div>
+                            <span class="level-text">90%</span>
+                        </div>
+                    </div>
+                    <div class="skill-glow"></div>
+                </div>
+
+                <div class="skill-card glass-card" data-category="frontend" data-animate="fade-up">
+                    <div class="skill-icon">
+                        <i class="fab fa-react"></i>
+                    </div>
+                    <div class="skill-info">
+                        <h4 class="skill-name">React.js</h4>
+                        <div class="skill-level">
+                            <div class="level-bar">
+                                <div class="level-fill" data-level="88"></div>
+                            </div>
+                            <span class="level-text">88%</span>
+                        </div>
+                    </div>
+                    <div class="skill-glow"></div>
+                </div>
+
+                <div class="skill-card glass-card" data-category="frontend" data-animate="fade-up">
+                    <div class="skill-icon">
+                        <i class="fab fa-vuejs"></i>
+                    </div>
+                    <div class="skill-info">
+                        <h4 class="skill-name">Vue.js</h4>
+                        <div class="skill-level">
+                            <div class="level-bar">
+                                <div class="level-fill" data-level="82"></div>
+                            </div>
+                            <span class="level-text">82%</span>
+                        </div>
+                    </div>
+                    <div class="skill-glow"></div>
+                </div>
+
+                <div class="skill-card glass-card" data-category="frontend" data-animate="fade-up">
+                    <div class="skill-icon">
+                        <svg viewBox="0 0 24 24" fill="currentColor">
+                            <path
+                                d="M12.001 4.8c-3.2 0-5.2 1.6-6 4.8 1.2-1.6 2.6-2.2 4.2-1.8.913.228 1.565.89 2.288 1.624C13.666 10.618 15.027 12 18.001 12c3.2 0 5.2-1.6 6-4.8-1.2 1.6-2.6 2.2-4.2 1.8-.913-.228-1.565-.89-2.288-1.624C16.337 6.182 14.976 4.8 12.001 4.8zm-6 7.2c-3.2 0-5.2 1.6-6 4.8 1.2-1.6 2.6-2.2 4.2-1.8.913.228 1.565.89 2.288 1.624 1.177 1.194 2.538 2.576 5.512 2.576 3.2 0 5.2-1.6 6-4.8-1.2 1.6-2.6 2.2-4.2 1.8-.913-.228-1.565-.89-2.288-1.624C10.337 13.382 8.976 12 6.001 12z" />
+                        </svg>
+                    </div>
+                    <div class="skill-info">
+                        <h4 class="skill-name">Tailwind CSS</h4>
+                        <div class="skill-level">
+                            <div class="level-bar">
+                                <div class="level-fill" data-level="90"></div>
+                            </div>
+                            <span class="level-text">90%</span>
+                        </div>
+                    </div>
+                    <div class="skill-glow"></div>
+                </div>
+
+                <!-- Backend Skills -->
+                <div class="skill-card glass-card" data-category="backend" data-animate="fade-up">
+                    <div class="skill-icon">
+                        <i class="fab fa-node-js"></i>
+                    </div>
+                    <div class="skill-info">
+                        <h4 class="skill-name">Node.js</h4>
+                        <div class="skill-level">
+                            <div class="level-bar">
+                                <div class="level-fill" data-level="85"></div>
+                            </div>
+                            <span class="level-text">85%</span>
+                        </div>
+                    </div>
+                    <div class="skill-glow"></div>
+                </div>
+
+                <div class="skill-card glass-card" data-category="backend" data-animate="fade-up">
+                    <div class="skill-icon">
+                        <i class="fab fa-python"></i>
+                    </div>
+                    <div class="skill-info">
+                        <h4 class="skill-name">Python</h4>
+                        <div class="skill-level">
+                            <div class="level-bar">
+                                <div class="level-fill" data-level="80"></div>
+                            </div>
+                            <span class="level-text">80%</span>
+                        </div>
+                    </div>
+                    <div class="skill-glow"></div>
+                </div>
+
+                <div class="skill-card glass-card" data-category="backend" data-animate="fade-up">
+                    <div class="skill-icon">
+                        <i class="fas fa-database"></i>
+                    </div>
+                    <div class="skill-info">
+                        <h4 class="skill-name">MongoDB</h4>
+                        <div class="skill-level">
+                            <div class="level-bar">
+                                <div class="level-fill" data-level="78"></div>
+                            </div>
+                            <span class="level-text">78%</span>
+                        </div>
+                    </div>
+                    <div class="skill-glow"></div>
+                </div>
+
+                <div class="skill-card glass-card" data-category="backend" data-animate="fade-up">
+                    <div class="skill-icon">
+                        <i class="fas fa-server"></i>
+                    </div>
+                    <div class="skill-info">
+                        <h4 class="skill-name">PostgreSQL</h4>
+                        <div class="skill-level">
+                            <div class="level-bar">
+                                <div class="level-fill" data-level="75"></div>
+                            </div>
+                            <span class="level-text">75%</span>
+                        </div>
+                    </div>
+                    <div class="skill-glow"></div>
+                </div>
+
+                <div class="skill-card glass-card" data-category="backend" data-animate="fade-up">
+                    <div class="skill-icon">
+                        <i class="fas fa-cloud"></i>
+                    </div>
+                    <div class="skill-info">
+                        <h4 class="skill-name">AWS</h4>
+                        <div class="skill-level">
+                            <div class="level-bar">
+                                <div class="level-fill" data-level="70"></div>
+                            </div>
+                            <span class="level-text">70%</span>
+                        </div>
+                    </div>
+                    <div class="skill-glow"></div>
+                </div>
+
+                <div class="skill-card glass-card" data-category="backend" data-animate="fade-up">
+                    <div class="skill-icon">
+                        <i class="fas fa-fire"></i>
+                    </div>
+                    <div class="skill-info">
+                        <h4 class="skill-name">Firebase</h4>
+                        <div class="skill-level">
+                            <div class="level-bar">
+                                <div class="level-fill" data-level="82"></div>
+                            </div>
+                            <span class="level-text">82%</span>
+                        </div>
+                    </div>
+                    <div class="skill-glow"></div>
+                </div>
+
+                <!-- Tools & Others -->
+                <div class="skill-card glass-card" data-category="tools" data-animate="fade-up">
+                    <div class="skill-icon">
+                        <i class="fab fa-git-alt"></i>
+                    </div>
+                    <div class="skill-info">
+                        <h4 class="skill-name">Git & GitHub</h4>
+                        <div class="skill-level">
+                            <div class="level-bar">
+                                <div class="level-fill" data-level="92"></div>
+                            </div>
+                            <span class="level-text">92%</span>
+                        </div>
+                    </div>
+                    <div class="skill-glow"></div>
+                </div>
+
+                <div class="skill-card glass-card" data-category="tools" data-animate="fade-up">
+                    <div class="skill-icon">
+                        <i class="fab fa-docker"></i>
+                    </div>
+                    <div class="skill-info">
+                        <h4 class="skill-name">Docker</h4>
+                        <div class="skill-level">
+                            <div class="level-bar">
+                                <div class="level-fill" data-level="75"></div>
+                            </div>
+                            <span class="level-text">75%</span>
+                        </div>
+                    </div>
+                    <div class="skill-glow"></div>
+                </div>
+
+                <div class="skill-card glass-card" data-category="tools" data-animate="fade-up">
+                    <div class="skill-icon">
+                        <i class="fab fa-figma"></i>
+                    </div>
+                    <div class="skill-info">
+                        <h4 class="skill-name">Figma</h4>
+                        <div class="skill-level">
+                            <div class="level-bar">
+                                <div class="level-fill" data-level="85"></div>
+                            </div>
+                            <span class="level-text">85%</span>
+                        </div>
+                    </div>
+                    <div class="skill-glow"></div>
+                </div>
+
+                <div class="skill-card glass-card" data-category="tools" data-animate="fade-up">
+                    <div class="skill-icon">
+                        <i class="fas fa-terminal"></i>
+                    </div>
+                    <div class="skill-info">
+                        <h4 class="skill-name">Terminal / CLI</h4>
+                        <div class="skill-level">
+                            <div class="level-bar">
+                                <div class="level-fill" data-level="88"></div>
+                            </div>
+                            <span class="level-text">88%</span>
+                        </div>
+                    </div>
+                    <div class="skill-glow"></div>
+                </div>
+
+                <div class="skill-card glass-card" data-category="tools" data-animate="fade-up">
+                    <div class="skill-icon">
+                        <i class="fas fa-cube"></i>
+                    </div>
+                    <div class="skill-info">
+                        <h4 class="skill-name">Three.js</h4>
+                        <div class="skill-level">
+                            <div class="level-bar">
+                                <div class="level-fill" data-level="72"></div>
+                            </div>
+                            <span class="level-text">72%</span>
+                        </div>
+                    </div>
+                    <div class="skill-glow"></div>
+                </div>
+
+                <div class="skill-card glass-card" data-category="tools" data-animate="fade-up">
+                    <div class="skill-icon">
+                        <i class="fas fa-wand-magic-sparkles"></i>
+                    </div>
+                    <div class="skill-info">
+                        <h4 class="skill-name">GSAP</h4>
+                        <div class="skill-level">
+                            <div class="level-bar">
+                                <div class="level-fill" data-level="85"></div>
+                            </div>
+                            <span class="level-text">85%</span>
+                        </div>
+                    </div>
+                    <div class="skill-glow"></div>
+                </div>
+            </div>
+
+            <!-- Services -->
+            <div class="services-grid" data-animate="fade-up">
+                <h3 class="services-title">Services I Offer</h3>
+
+                <div class="service-cards">
+                    <div class="service-card glass-card">
+                        <div class="service-icon">
+                            <i class="fas fa-laptop-code"></i>
+                        </div>
+                        <h4>Web Development</h4>
+                        <p>Building responsive, performant websites and web applications using modern technologies.</p>
+                    </div>
+
+                    <div class="service-card glass-card">
+                        <div class="service-icon">
+                            <i class="fas fa-palette"></i>
+                        </div>
+                        <h4>UI/UX Design</h4>
+                        <p>Creating beautiful, intuitive interfaces that provide exceptional user experiences.</p>
+                    </div>
+
+                    <div class="service-card glass-card">
+                        <div class="service-icon">
+                            <i class="fas fa-mobile-alt"></i>
+                        </div>
+                        <h4>Mobile Development</h4>
+                        <p>Developing cross-platform mobile applications with React Native and Flutter.</p>
+                    </div>
+
+                    <div class="service-card glass-card">
+                        <div class="service-icon">
+                            <i class="fas fa-robot"></i>
+                        </div>
+                        <h4>AI Integration</h4>
+                        <p>Implementing AI-powered features and chatbots to enhance user engagement.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ========================================
+         PROJECTS SECTION
+    ======================================== -->
+    <section id="projects" class="projects-section">
+        <div class="container">
+            <!-- Section Header -->
+            <div class="section-header" data-animate="fade-up">
+                <span class="section-tag">My Work</span>
+                <h2 class="section-title">Featured <span class="highlight">Projects</span></h2>
+                <div class="section-line"></div>
+                <p class="section-description">
+                    A collection of my recent work and personal projects
+                </p>
+            </div>
+
+            <!-- Project Filters -->
+            <div class="project-filters" data-animate="fade-up">
+                <button class="filter-btn active" data-filter="all">All</button>
+                <button class="filter-btn" data-filter="web">Web Apps</button>
+                <button class="filter-btn" data-filter="mobile">Mobile</button>
+                <button class="filter-btn" data-filter="design">Design</button>
+            </div>
+
+            <!-- Projects Grid -->
+            <div class="projects-grid">
+                <!-- EDIT: Add/Modify Projects -->
+
+                <!-- Project 1 -->
+                <article class="project-card" data-category="web" data-animate="fade-up">
+                    <div class="project-image">
+                        <!-- EDIT: Project Image -->
+                        <img src="Virtual keys.png" alt="Virtual Keys"
+                            style="width:100%; height:100%; object-fit:cover;">
+                        <div class="project-overlay">
+                            <div class="overlay-content">
+                                <div class="project-tech">
+                                    <span class="tech-tag">React</span>
+                                    <span class="tech-tag">Node.js</span>
+                                    <span class="tech-tag">MongoDB</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="project-content">
+
+                        <span class="project-category">Web Application</span>
+                        <h3 class="project-title">Virtual Keys</h3>
+                        <p class="project-description">
+                            Premium digital game keys. Instant delivery. Trusted by millions.
+                        </p>
+                        <a href="#" class="project-details-btn">
+                            <span>View Details</span>
+                            <i class="fas fa-arrow-right"></i>
+                        </a>
+                    </div>
+                    <div class="project-glow"></div>
+                </article>
+
+                <!-- Project 2 -->
+                <article class="project-card featured" data-category="web" data-animate="fade-up">
+                    <div class="project-image">
+                        <img src="Ai content gen.png" alt="AI Content Generator"
+                            style="width:100%; height:100%; object-fit:cover;">
+                        <span class="featured-badge">Featured</span>
+                        <div class="project-overlay">
+                            <div class="overlay-content">
+                                <div class="project-tech">
+                                    <span class="tech-tag">Vue.js</span>
+                                    <span class="tech-tag">OpenAI API</span>
+                                    <span class="tech-tag">Firebase</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="project-content">
+                        <div class="project-content">
+                            <span class="project-category">AI Application</span>
+                            <h3 class="project-title">AI Content Generator</h3>
+                            <p class="project-description">
+                                A powerful content generation tool powered by advanced AI models
+                                to help creators write faster and better.
+                            </p>
+                            <a href="#" class="project-details-btn">
+                                <span>View Details</span>
+                                <i class="fas fa-arrow-right"></i>
+                            </a>
+                        </div>
+                        <div class="project-glow"></div>
+                </article>
+
+                <!-- Project 3 -->
+                <article class="project-card" data-category="mobile" data-animate="fade-up">
+                    <div class="project-image">
+                        <img src="Fitness.png" alt="Fitness Tracker App"
+                            style="width:100%; height:100%; object-fit:cover;">
+                        <div class="project-overlay">
+                            <div class="overlay-content">
+                                <div class="project-tech">
+                                    <span class="tech-tag">React Native</span>
+                                    <span class="tech-tag">Redux</span>
+                                    <span class="tech-tag">AWS</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="project-content">
+                        <span class="project-category">Mobile App</span>
+                        <h3 class="project-title">Fitness Tracker App</h3>
+                        <p class="project-description">
+                            A comprehensive fitness tracking app with workout plans,
+                            progress monitoring, and social features.
+                        </p>
+                        <a href="#" class="project-details-btn">
+                            <span>View Details</span>
+                            <i class="fas fa-arrow-right"></i>
+                        </a>
+                    </div>
+                    <div class="project-glow"></div>
+                </article>
+
+                <!-- Project 4 -->
+                <article class="project-card" data-category="design" data-animate="fade-up">
+                    <div class="project-image">
+                        <img src="Bank redesign.jpg" alt="Banking App Redesign"
+                            style="width:100%; height:100%; object-fit:cover;">
+                        <div class="project-overlay">
+                            <div class="overlay-content">
+                                <div class="project-tech">
+                                    <span class="tech-tag">Figma</span>
+                                    <span class="tech-tag">Illustrator</span>
+                                    <span class="tech-tag">Prototyping</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="project-content">
+                        <span class="project-category">UI/UX Design</span>
+                        <h3 class="project-title">Banking App Redesign</h3>
+                        <p class="project-description">
+                            A complete redesign of a mobile banking application focusing
+                            on accessibility and user experience.
+                        </p>
+                        <a href="#" class="project-details-btn">
+                            <span>View Details</span>
+                            <i class="fas fa-arrow-right"></i>
+                        </a>
+                    </div>
+                    <div class="project-glow"></div>
+                </article>
+
+                <!-- Project 5 -->
+                <article class="project-card" data-category="web" data-animate="fade-up">
+                    <div class="project-image">
+                        <img src="3d model.avif" alt="3D Product Showcase"
+                            style="width:100%; height:100%; object-fit:cover;">
+                        <div class="project-overlay">
+                            <div class="overlay-content">
+                                <div class="project-tech">
+                                    <span class="tech-tag">Three.js</span>
+                                    <span class="tech-tag">GSAP</span>
+                                    <span class="tech-tag">WebGL</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="project-content">
+                        <span class="project-category">Interactive Experience</span>
+                        <h3 class="project-title">3D Product Showcase</h3>
+                        <p class="project-description">
+                            An immersive 3D product visualization experience with
+                            interactive controls and cinematic animations.
+                        </p>
+                        <a href="#" class="project-details-btn">
+                            <span>View Details</span>
+                            <i class="fas fa-arrow-right"></i>
+                        </a>
+                    </div>
+                    <div class="project-glow"></div>
+                </article>
+
+                <!-- Project 6 -->
+                <article class="project-card" data-category="mobile" data-animate="fade-up">
+                    <div class="project-image">
+                        <img src="task.avif" alt="Task Management App"
+                            style="width:100%; height:100%; object-fit:cover;">
+                        <div class="project-overlay">
+                            <div class="overlay-content">
+                                <div class="project-tech">
+                                    <span class="tech-tag">Flutter</span>
+                                    <span class="tech-tag">Dart</span>
+                                    <span class="tech-tag">Firebase</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="project-content">
+                        <span class="project-category">Mobile App</span>
+                        <h3 class="project-title">Task Management App</h3>
+                        <p class="project-description">
+                            A beautiful task management app with team collaboration features,
+                            push notifications, and offline support.
+                        </p>
+                        <a href="#" class="project-details-btn">
+                            <span>View Details</span>
+                            <i class="fas fa-arrow-right"></i>
+                        </a>
+                    </div>
+                    <div class="project-glow"></div>
+                </article>
+            </div>
+
+            <!-- View More Button -->
+            <div class="projects-cta" data-animate="fade-up">
+                <a href="#" class="btn btn-outline btn-large">
+                    <span>View All Projects</span>
+                    <i class="fas fa-arrow-right"></i>
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- ========================================
+         EXPERIENCE / TIMELINE SECTION
+    ======================================== -->
+    <section id="experience" class="experience-section">
+        <div class="container">
+            <!-- Section Header -->
+            <div class="section-header" data-animate="fade-up">
+                <span class="section-tag">My Journey</span>
+                <h2 class="section-title">Experience & <span class="highlight">Education</span></h2>
+                <div class="section-line"></div>
+            </div>
+
+            <!-- Experience Toggle -->
+            <div class="experience-toggle" data-animate="fade-up">
+                <button class="toggle-btn active" data-type="work">
+                    <i class="fas fa-briefcase"></i>
+                    <span>Work Experience</span>
+                </button>
+                <button class="toggle-btn" data-type="education">
+                    <i class="fas fa-graduation-cap"></i>
+                    <span>Education</span>
+                </button>
+            </div>
+
+            <!-- Timeline Container -->
+            <div class="timeline-container">
+                <!-- Work Experience Timeline -->
+                <div class="timeline" id="work-timeline" data-active="true">
+                    <!-- EDIT: Add/Modify Work Experience -->
+
+                    <div class="timeline-item" data-animate="fade-up">
+                        <div class="timeline-marker">
+                            <div class="marker-dot"></div>
+                            <div class="marker-line"></div>
+                        </div>
+                        <div class="timeline-content glass-card">
+                            <div class="timeline-header">
+                                <span class="timeline-date">2022 - Present</span>
+                                <span class="timeline-tag">Current</span>
+                            </div>
+                            <h3 class="timeline-title">Senior Frontend Developer</h3>
+                            <h4 class="timeline-company">
+                                <i class="fas fa-building"></i>
+                                Tech Innovators Inc.
+                            </h4>
+                            <p class="timeline-description">
+                                Leading the frontend development team, architecting scalable
+                                web applications, and mentoring junior developers.
+                                Implemented modern CI/CD pipelines and improved performance by 40%.
+                            </p>
+                            <div class="timeline-skills">
+                                <span>React</span>
+                                <span>TypeScript</span>
+                                <span>GraphQL</span>
+                                <span>AWS</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="timeline-item" data-animate="fade-up">
+                        <div class="timeline-marker">
+                            <div class="marker-dot"></div>
+                            <div class="marker-line"></div>
+                        </div>
+                        <div class="timeline-content glass-card">
+                            <div class="timeline-header">
+                                <span class="timeline-date">2020 - 2022</span>
+                            </div>
+                            <h3 class="timeline-title">Full Stack Developer</h3>
+                            <h4 class="timeline-company">
+                                <i class="fas fa-building"></i>
+                                Digital Solutions Agency
+                            </h4>
+                            <p class="timeline-description">
+                                Developed full-stack web applications for diverse clients,
+                                from startups to enterprise companies. Specialized in
+                                e-commerce solutions and custom CMS development.
+                            </p>
+                            <div class="timeline-skills">
+                                <span>Vue.js</span>
+                                <span>Node.js</span>
+                                <span>MongoDB</span>
+                                <span>Docker</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="timeline-item" data-animate="fade-up">
+                        <div class="timeline-marker">
+                            <div class="marker-dot"></div>
+                            <div class="marker-line"></div>
+                        </div>
+                        <div class="timeline-content glass-card">
+                            <div class="timeline-header">
+                                <span class="timeline-date">2018 - 2020</span>
+                            </div>
+                            <h3 class="timeline-title">Junior Web Developer</h3>
+                            <h4 class="timeline-company">
+                                <i class="fas fa-building"></i>
+                                StartUp Labs
+                            </h4>
+                            <p class="timeline-description">
+                                Started my professional journey building responsive websites
+                                and learning modern web development practices. Contributed to
+                                multiple successful product launches.
+                            </p>
+                            <div class="timeline-skills">
+                                <span>HTML/CSS</span>
+                                <span>JavaScript</span>
+                                <span>PHP</span>
+                                <span>MySQL</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="timeline-item" data-animate="fade-up">
+                        <div class="timeline-marker">
+                            <div class="marker-dot"></div>
+                        </div>
+                        <div class="timeline-content glass-card">
+                            <div class="timeline-header">
+                                <span class="timeline-date">2017 - 2018</span>
+                            </div>
+                            <h3 class="timeline-title">Freelance Developer</h3>
+                            <h4 class="timeline-company">
+                                <i class="fas fa-laptop-house"></i>
+                                Self-Employed
+                            </h4>
+                            <p class="timeline-description">
+                                Began freelancing while completing my degree, building websites
+                                for local businesses and gaining real-world experience with
+                                client communication and project management.
+                            </p>
+                            <div class="timeline-skills">
+                                <span>WordPress</span>
+                                <span>jQuery</span>
+                                <span>Bootstrap</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Education Timeline -->
+                <div class="timeline" id="education-timeline">
+                    <!-- EDIT: Add/Modify Education -->
+
+                    <div class="timeline-item" data-animate="fade-up">
+                        <div class="timeline-marker">
+                            <div class="marker-dot"></div>
+                            <div class="marker-line"></div>
+                        </div>
+                        <div class="timeline-content glass-card">
+                            <div class="timeline-header">
+                                <span class="timeline-date">2014 - 2018</span>
+                            </div>
+                            <h3 class="timeline-title">Bachelor of Science in Computer Science</h3>
+                            <h4 class="timeline-company">
+                                <i class="fas fa-university"></i>
+                                Stanford University
+                            </h4>
+                            <p class="timeline-description">
+                                Graduated with honors. Focused on software engineering and
+                                human-computer interaction. Senior thesis on modern web
+                                accessibility practices.
+                            </p>
+                            <div class="timeline-skills">
+                                <span>GPA: 3.8</span>
+                                <span>Dean's List</span>
+                                <span>CS Club President</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="timeline-item" data-animate="fade-up">
+                        <div class="timeline-marker">
+                            <div class="marker-dot"></div>
+                            <div class="marker-line"></div>
+                        </div>
+                        <div class="timeline-content glass-card">
+                            <div class="timeline-header">
+                                <span class="timeline-date">2021</span>
+                            </div>
+                            <h3 class="timeline-title">AWS Solutions Architect Certification</h3>
+                            <h4 class="timeline-company">
+                                <i class="fab fa-aws"></i>
+                                Amazon Web Services
+                            </h4>
+                            <p class="timeline-description">
+                                Professional certification demonstrating expertise in designing
+                                distributed systems on AWS cloud infrastructure.
+                            </p>
+                            <div class="timeline-skills">
+                                <span>Cloud Architecture</span>
+                                <span>AWS Services</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="timeline-item" data-animate="fade-up">
+                        <div class="timeline-marker">
+                            <div class="marker-dot"></div>
+                        </div>
+                        <div class="timeline-content glass-card">
+                            <div class="timeline-header">
+                                <span class="timeline-date">2022</span>
+                            </div>
+                            <h3 class="timeline-title">Google UX Design Professional Certificate</h3>
+                            <h4 class="timeline-company">
+                                <i class="fab fa-google"></i>
+                                Google / Coursera
+                            </h4>
+                            <p class="timeline-description">
+                                Comprehensive UX design training covering user research,
+                                wireframing, prototyping, and usability testing.
+                            </p>
+                            <div class="timeline-skills">
+                                <span>UX Research</span>
+                                <span>Prototyping</span>
+                                <span>Figma</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ========================================
+         TESTIMONIALS SECTION (BONUS)
+    ======================================== -->
+    <section id="testimonials" class="testimonials-section">
+        <div class="container">
+            <div class="section-header" data-animate="fade-up">
+                <span class="section-tag">What People Say</span>
+                <h2 class="section-title">Client <span class="highlight">Testimonials</span></h2>
+                <div class="section-line"></div>
+            </div>
+
+            <div class="testimonials-slider" data-animate="fade-up">
+                <div class="testimonials-track">
+                    <!-- EDIT: Add/Modify Testimonials -->
+
+                    <div class="testimonial-card glass-card">
+                        <div class="testimonial-rating">
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                        </div>
+                        <p class="testimonial-text">
+                            "Alex delivered an exceptional website that exceeded our expectations.
+                            The attention to detail and creative solutions made the project a huge success.
+                            Highly recommended!"
+                        </p>
+                        <div class="testimonial-author">
+                            <div class="author-avatar">
+                                <i class="fas fa-user"></i>
+                            </div>
+                            <div class="author-info">
+                                <h4>Sarah Johnson</h4>
+                                <span>CEO, TechStart Inc.</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="testimonial-card glass-card">
+                        <div class="testimonial-rating">
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                        </div>
+                        <p class="testimonial-text">
+                            "Working with Alex was a fantastic experience. They understood our vision
+                            perfectly and brought it to life with stunning animations and smooth
+                            interactions. Our conversion rate increased by 60%!"
+                        </p>
+                        <div class="testimonial-author">
+                            <div class="author-avatar">
+                                <i class="fas fa-user"></i>
+                            </div>
+                            <div class="author-info">
+                                <h4>Michael Chen</h4>
+                                <span>Product Manager, InnovateCo</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="testimonial-card glass-card">
+                        <div class="testimonial-rating">
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star-half-alt"></i>
+                        </div>
+                        <p class="testimonial-text">
+                            "The best developer I've worked with. Alex's code is clean, well-documented,
+                            and their communication throughout the project was excellent. Will definitely
+                            hire again!"
+                        </p>
+                        <div class="testimonial-author">
+                            <div class="author-avatar">
+                                <i class="fas fa-user"></i>
+                            </div>
+                            <div class="author-info">
+                                <h4>Emily Roberts</h4>
+                                <span>Founder, DesignHub</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Slider Controls -->
+                <div class="slider-controls">
+                    <button class="slider-btn prev" aria-label="Previous">
+                        <i class="fas fa-chevron-left"></i>
+                    </button>
+                    <div class="slider-dots"></div>
+                    <button class="slider-btn next" aria-label="Next">
+                        <i class="fas fa-chevron-right"></i>
+                    </button>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ========================================
+         CONTACT SECTION
+    ======================================== -->
+    <section id="contact" class="contact-section">
+        <div class="container">
+            <!-- Section Header -->
+            <div class="section-header" data-animate="fade-up">
+                <span class="section-tag">Get in Touch</span>
+                <h2 class="section-title">Let's Work <span class="highlight">Together</span></h2>
+                <div class="section-line"></div>
+                <p class="section-description">
+                    Have a project in mind? I'd love to hear from you.
+                </p>
+            </div>
+
+            <div class="contact-grid">
+                <!-- Contact Info -->
+                <div class="contact-info" data-animate="fade-right">
+                    <div class="info-header">
+                        <h3>Contact Information</h3>
+                        <p>Feel free to reach out through any of these channels</p>
+                    </div>
+
+                    <div class="info-items">
+                        <!-- EDIT: Your Contact Info -->
+                        <div class="info-item glass-card">
+                            <div class="info-icon">
+                                <i class="fas fa-envelope"></i>
+                            </div>
+                            <div class="info-content">
+                                <span class="info-label">Email</span>
+                                <a href="mailto:anaytiwari3a15@gmail.com" class="info-value">anaytiwari3a15@gmail.com</a>
+                            </div>
+                        </div>
+
+                        <div class="info-item glass-card">
+                            <div class="info-icon">
+                                <i class="fas fa-phone"></i>
+                            </div>
+                            <div class="info-content">
+                                <span class="info-label">Phone</span>
+                                <a href="tel:+1234567890" class="info-value">+91 9289475280</a>
+                            </div>
+                        </div>
+
+                        <div class="info-item glass-card">
+                            <div class="info-icon">
+                                <i class="fas fa-map-marker-alt"></i>
+                            </div>
+                            <div class="info-content">
+                                <span class="info-label">Location</span>
+                                <span class="info-value">New Delhi , India</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Social Links -->
+                    <div class="social-section">
+                        <h4>Follow Me</h4>
+                        <div class="social-links">
+                            <!-- EDIT: Your Social Links -->
+                            <a href="#" class="social-link" target="_blank" aria-label="GitHub">
+                                <i class="fab fa-github"></i>
+                            </a>
+                            <a href="#" class="social-link" target="_blank" aria-label="LinkedIn">
+                                <i class="fab fa-linkedin-in"></i>
+                            </a>
+                            <a href="#" class="social-link" target="_blank" aria-label="Twitter">
+                                <i class="fab fa-twitter"></i>
+                            </a>
+                            <a href="#" class="social-link" target="_blank" aria-label="Dribbble">
+                                <i class="fab fa-dribbble"></i>
+                            </a>
+                            <a href="#" class="social-link" target="_blank" aria-label="Instagram">
+                                <i class="fab fa-instagram"></i>
+                            </a>
+                        </div>
+                    </div>
+
+                    <!-- Availability Badge -->
+                    <div class="availability-badge glass-card">
+                        <div class="pulse-dot"></div>
+                        <span>Available for new projects</span>
+                    </div>
+                </div>
+
+                <!-- Contact Form -->
+                <div class="contact-form-container" data-animate="fade-left">
+                    <form id="contact-form" class="contact-form glass-card">
+                        <div class="form-row">
+                            <div class="form-group">
+                                <label for="name">Your Name</label>
+                                <div class="input-wrapper">
+                                    <i class="fas fa-user"></i>
+                                    <input type="text" id="name" name="name" placeholder="John Doe" required>
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label for="email">Your Email</label>
+                                <div class="input-wrapper">
+                                    <i class="fas fa-envelope"></i>
+                                    <input type="email" id="email" name="email" placeholder="john@example.com" required>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="subject">Subject</label>
+                            <div class="input-wrapper">
+                                <i class="fas fa-tag"></i>
+                                <input type="text" id="subject" name="subject" placeholder="Project Inquiry" required>
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="budget">Budget Range</label>
+                            <div class="input-wrapper">
+                                <i class="fas fa-dollar-sign"></i>
+                                <select id="budget" name="budget">
+                                    <option value="">Select a range</option>
+                                    <option value="<5k">Less than $5,000</option>
+                                    <option value="5k-10k">$5,000 - $10,000</option>
+                                    <option value="10k-25k">$10,000 - $25,000</option>
+                                    <option value="25k+">$25,000+</option>
+                                </select>
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="message">Your Message</label>
+                            <div class="input-wrapper textarea-wrapper">
+                                <i class="fas fa-comment-alt"></i>
+                                <textarea id="message" name="message" rows="5"
+                                    placeholder="Tell me about your project..." required></textarea>
+                            </div>
+                        </div>
+
+                        <button type="submit" class="btn btn-primary btn-full">
+                            <span>Send Message</span>
+                            <i class="fas fa-paper-plane"></i>
+                        </button>
+
+                        <!-- Form Status -->
+                        <div class="form-status" id="form-status"></div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ========================================
+         FOOTER
+    ======================================== -->
+    <footer id="footer" class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <!-- Footer Logo -->
+                <div class="footer-brand">
+                    <a href="#hero" class="footer-logo">TFC</a>
+                    <p class="footer-tagline">Creating digital experiences that inspire.</p>
+                </div>
+
+                <!-- Quick Links -->
+                <div class="footer-links">
+                    <h4>Quick Links</h4>
+                    <ul>
+                        <li><a href="#about">About</a></li>
+                        <li><a href="#projects">Projects</a></li>
+                        <li><a href="#experience">Experience</a></li>
+                        <li><a href="#contact">Contact</a></li>
+                    </ul>
+                </div>
+
+                <!-- Social Links -->
+                <div class="footer-social">
+                    <h4>Connect</h4>
+                    <div class="social-links">
+                        <a href="#" target="_blank" aria-label="GitHub"><i class="fab fa-github"></i></a>
+                        <a href="#" target="_blank" aria-label="LinkedIn"><i class="fab fa-linkedin-in"></i></a>
+                        <a href="#" target="_blank" aria-label="Twitter"><i class="fab fa-twitter"></i></a>
+                        <a href="#" target="_blank" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Footer Bottom -->
+            <div class="footer-bottom">
+                <p>&copy; <span id="current-year"></span> TFC BADWOLF. All rights reserved.</p>
+                <p>Designed & Built with <i class="fas fa-heart"></i> and lots of <i class="fas fa-coffee"></i></p>
+            </div>
+        </div>
+
+        <!-- Back to Top -->
+        <button id="back-to-top" class="back-to-top" aria-label="Back to Top">
+            <i class="fas fa-arrow-up"></i>
+        </button>
+    </footer>
+
+    <!-- ========================================
+         AI CHATBOT
+    ======================================== -->
+    <div id="chatbot-container">
+        <!-- Chat Toggle Button -->
+        <button id="chat-toggle" class="chat-toggle" aria-label="Open Chat">
+            <img src="discord_fake_avatar_decorations_1770640170390.gif" alt="AI Chat">
+            <span class="close-icon">
+                <i class="fas fa-times"></i>
+            </span>
+            <span class="chat-notification">1</span>
+        </button>
+
+        <!-- Chat Window -->
+        <div id="chat-window" class="chat-window glass-card">
+            <!-- Chat Header -->
+            <div class="chat-header">
+                <div class="chat-avatar">
+                    <div class="avatar-ring"></div>
+                    <span>AI</span>
+                </div>
+                <div class="chat-info">
+                    <h4>AI Assistant</h4>
+                    <span class="chat-status">
+                        <span class="status-dot"></span>
+                        Online
+                    </span>
+                </div>
+                <button class="chat-minimize" aria-label="Minimize Chat">
+                    <i class="fas fa-minus"></i>
+                </button>
+            </div>
+
+            <!-- Chat Messages -->
+            <div id="chat-messages" class="chat-messages">
+                <!-- Welcome Message -->
+                <div class="message bot-message">
+                    <div class="message-avatar">AI</div>
+                    <div class="message-content">
+                        <p>Hi! 👋 I'm TFC's AI assistant. How can I help you today?</p>
+                        <span class="message-time">Just now</span>
+                    </div>
+                </div>
+
+                <!-- Quick Actions -->
+                <div class="quick-actions">
+                    <button class="quick-action" data-message="Tell me about Alex's experience">
+                        <i class="fas fa-briefcase"></i>
+                        Experience
+                    </button>
+                    <button class="quick-action" data-message="What services does Alex offer?">
+                        <i class="fas fa-cogs"></i>
+                        Services
+                    </button>
+                    <button class="quick-action" data-message="How can I hire Alex?">
+                        <i class="fas fa-handshake"></i>
+                        Hire
+                    </button>
+                </div>
+            </div>
+
+            <!-- Typing Indicator -->
+            <div id="typing-indicator" class="typing-indicator hidden">
+                <div class="message-avatar">AI</div>
+                <div class="typing-dots">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </div>
+            </div>
+
+            <!-- Chat Input -->
+            <div class="chat-input-container">
+                <div class="chat-input-wrapper">
+                    <input type="text" id="chat-input" placeholder="Type your message..." autocomplete="off">
+                    <button id="chat-send" class="chat-send" aria-label="Send Message">
+                        <i class="fas fa-paper-plane"></i>
+                    </button>
+                </div>
+                <span class="chat-powered">Powered by AI</span>
+            </div>
+        </div>
+    </div>
+
+    <!-- ========================================
+         SCRIPTS
+    ======================================== -->
+    <script src="script.js"></script>
+</body>
+
+</html>
